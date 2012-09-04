@@ -2,7 +2,7 @@ package maddashrobo.factories
 {
 	import entityboost.Entity;
 	import entityboost.IController;
-	import maddashrobo.controllers.StarlingController;
+	import maddashrobo.controllers.MovieClipController;
 	/**
 	 * ...
 	 * @author Jonathan Dunlap
@@ -21,7 +21,7 @@ package maddashrobo.factories
 			return [];
 		}
 		protected override function makeView():IController {
-			return new StarlingController("placeholder");;
+			return new MovieClipController("placeholder");;
 		} 
 		public override function get type():String {
 			return "enemy";

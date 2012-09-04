@@ -9,11 +9,11 @@ package maddashrobo.controllers
 	 * ...
 	 * @author Jonathan Dunlap
 	 */
-	public class StarlingController implements IController
+	public class MovieClipController implements IController
 	{
 		public var view:MovieClip;
 		
-		public function StarlingController(assetID:String):void {
+		public function MovieClipController(assetID:String):void {
 			
 		}
 		/* INTERFACE entityboost.IController */
@@ -22,7 +22,7 @@ package maddashrobo.controllers
 			
 		}
 		
-		public function onSetup(entity:Entity):void 
+		public function onSetup(entity:Object):void 
 		{ 
 			// todo
 			//Game.view.addChild(view = new MovieClip(null));

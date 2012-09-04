@@ -1,6 +1,7 @@
 package maddashrobo 
 {
 	import entityboost.Entity;
+	import maddashrobo.controllers.NapeCore;
 	import maddashrobo.factories.*;
 	/**
 	 * ...
@@ -9,6 +10,8 @@ package maddashrobo
 	public class GameConfig
 	{
 		public static function configure(game:Game):void {
+			game.addController(new NapeCore()); // add core physics system
+			
 			game.addFactory(new EnemyFactory()); //replace EntityFactory with specific types
 			game.addFactory(new HeroFactory());
 			

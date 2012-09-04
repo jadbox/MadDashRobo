@@ -9,7 +9,7 @@ package maddashrobo.controllers
 	 * ...
 	 * @author Jonathan Dunlap
 	 */
-	public class PhysicsController implements IController 
+	public class PhysicsBodyController implements IController 
 	{
 		private static space:Space; // might get moved to some centrol location
 		

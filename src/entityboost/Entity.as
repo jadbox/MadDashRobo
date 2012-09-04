@@ -24,7 +24,7 @@ package entityboost
 		{
 			
 		}
-		
+		// Entity level game logic
 		public function addController(controller:IController):void {
 			_controllers.push(controller);
 			controller.onSetup(this);

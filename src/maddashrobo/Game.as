@@ -1,6 +1,7 @@
 package maddashrobo 
 {
 	import entityboost.Entity;
+	import entityboost.IController;
 	import entityboost.Indexer;
 	import maddashrobo.factories.AbstractEntityFactory;
 	import starling.animation.IAnimatable;
@@ -19,7 +20,8 @@ package maddashrobo
 		
 		private var started:Boolean;
 		private var mLastFrameTimestamp:Number;
-		private var factories:Object = {};
+		private const factories:Object = { };
+		private const _controllers:Array = new Array();
 		
 		public function Game() 
 		{
@@ -27,6 +29,17 @@ package maddashrobo
 				mLastFrameTimestamp = 0;
 				view = this;
 				addEventListener(Event.ADDED_TO_STAGE, onStageAdded);
+		}
+		
+		// Game engine-wide logic
+		public function addController(controller:IController):void {
+			_controllers.push(controller); 
+			controller.onSetup(this);
+		}
+		
+		public function removeController(controller:IController):void {
+			_controllers.splice(_controllers.indexOf(controller), 1);
+			controller.onDestroy();
 		}
 		
 		private function onStageAdded(e:Event):void {

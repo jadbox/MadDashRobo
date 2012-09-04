@@ -8,7 +8,7 @@ package entityboost
 	public interface IController 
 	{
 		function onUpdate(time:Number):void;
-		function onSetup(entity:Entity):void;
+		function onSetup(entity:Object):void;
 		function onDestroy():void;
 	}
 	
