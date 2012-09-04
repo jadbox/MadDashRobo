@@ -2,6 +2,7 @@ package
 {
 	import flash.display.Sprite;
 	import flash.events.Event;
+	import maddashrobo.Game;
 	 
 	/**
 	 * ...
@@ -9,7 +10,8 @@ package
 	 */
 	public class Main extends Sprite 
 	{
-		
+		private var game:Game;
+
 		public function Main():void 
 		{
 			if (stage) init();
@@ -20,6 +22,14 @@ package
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, init);
 			// entry point
+			game = new Game();
+			game.start();
+			addEventListener(Event.ENTER_FRAME, onFrame);
+			addChild(Game.VIEW = new Sprite());
+		}
+		
+		private function onFrame(e:Event):void {
+			game.onFrame(e);
 		}
 		
 	}
