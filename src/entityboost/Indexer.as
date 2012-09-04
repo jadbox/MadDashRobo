@@ -24,7 +24,7 @@ package entityboost
 		
 		public function add(entity:Entity):Entity {
 			entity._next = _head;
-			_head._prev = entity;
+			if(_head) _head._prev = entity;
 			elements++;
 			return _head = entity;
 		}
