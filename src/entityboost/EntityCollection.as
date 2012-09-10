@@ -4,7 +4,7 @@ package entityboost
 	 * ...
 	 * @author Jonathan Dunlap
 	 */
-	public class Indexer 
+	public class EntityCollection 
 	{
 		private var _head:Entity;
 		private var elements:int;

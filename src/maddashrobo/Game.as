@@ -1,8 +1,8 @@
 package maddashrobo 
 {
 	import entityboost.Entity;
+	import entityboost.EntityCollection;
 	import entityboost.IController;
-	import entityboost.Indexer;
 	import maddashrobo.factories.AbstractEntityFactory;
 	import starling.animation.IAnimatable;
 	import starling.core.Starling;
@@ -16,7 +16,7 @@ package maddashrobo
 	public class Game extends Sprite implements IAnimatable
 	{
 		public static var view:Sprite;
-		public static var indexer:Indexer;
+		public static var entities:EntityCollection;
 		
 		private var started:Boolean;
 		private var mLastFrameTimestamp:Number;
@@ -25,7 +25,7 @@ package maddashrobo
 		
 		public function Game() 
 		{
-				indexer = new Indexer();
+				entities = new EntityCollection();
 				mLastFrameTimestamp = 0;
 				view = this;
 				addEventListener(Event.ADDED_TO_STAGE, onStageAdded);
@@ -54,7 +54,7 @@ package maddashrobo
 		}
 		
 		public function make(factoryType:String):Entity {
-			return indexer.add( AbstractEntityFactory(factories[factoryType]).make() );
+			return entities.add( AbstractEntityFactory(factories[factoryType]).make() );
 		}
 		
 		public function start():void {
@@ -67,7 +67,7 @@ package maddashrobo
 		
 		public function advanceTime(time:Number):void {
 			if (!started) return;
-			indexer.update(time);
+			entities.update(time);
 		}
 	}
 
