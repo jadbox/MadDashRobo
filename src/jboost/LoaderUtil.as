@@ -23,7 +23,7 @@ package jboost
 		public static function getAsset(url:String, onComplete:Function):void {
 			var unRequested:Boolean = loaders[url] == null;
 			var loader:Loader = loaders[url]?loaders[url]:loaders[url] = new Loader();
-			var loaded:Boolean = loader.contentLoaderInfo.bytesLoaded >= loader.contentLoaderInfo.bytesTotal;
+			var loaded:Boolean = loader.contentLoaderInfo.bytesLoaded >= loader.contentLoaderInfo.bytesTotal && loader.content!=null;
 			if (loaded) {
 				onComplete(loader.content);
 				return;
@@ -39,7 +39,7 @@ package jboost
 		public static function getXML(url:String, onComplete:Function):void {
 			var unRequested:Boolean = loaders[url] == null;
 			var loader:URLLoader = loaders[url]?loaders[url]:loaders[url] = new URLLoader();
-			var loaded:Boolean = loader.bytesLoaded >= loader.bytesTotal;
+			var loaded:Boolean = loader.data;
 			if (loaded) {
 				onComplete(XML(loader.data));
 				return;

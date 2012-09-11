@@ -5,7 +5,9 @@ package
 	import flash.display.StageScaleMode;
 	import flash.events.Event;
 	import flash.geom.Rectangle;
+	import jboost.test.TestRunner;
 	import maddashrobo.Game;
+	import maddashrobo.tests.TestLoading;
 	import starling.core.Starling;
 	
 	/**
@@ -20,6 +22,11 @@ package
 		[SWF(width="800", height="600", frameRate="60", backgroundColor="#111111")]
 		public function Main():void 
 		{
+			if (true) {
+				new TestRunner([TestLoading]);
+				return;
+			}
+			
 			if (stage) init();
 			else addEventListener(Event.ADDED_TO_STAGE, init); 
 		}
