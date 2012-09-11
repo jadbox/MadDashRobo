@@ -1,6 +1,6 @@
 package maddashrobo 
 {
-	import entityboost.Entity;
+	import jboost.Entity;
 	import maddashrobo.controllers.NapeCore;
 	import maddashrobo.factories.*;
 	/**

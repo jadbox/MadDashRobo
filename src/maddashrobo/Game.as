@@ -1,8 +1,8 @@
 package maddashrobo 
 {
-	import entityboost.Entity;
-	import entityboost.EntityCollection;
-	import entityboost.IController;
+	import jboost.Entity;
+	import jboost.EntityCollection;
+	import jboost.IController;
 	import maddashrobo.factories.AbstractEntityFactory;
 	import starling.animation.IAnimatable;
 	import starling.core.Starling;

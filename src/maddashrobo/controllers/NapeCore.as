@@ -1,6 +1,6 @@
 package maddashrobo.controllers 
 {
-	import entityboost.IController;
+	import jboost.IController;
 	import maddashrobo.Game;
 	import nape.geom.Vec2;
 	import nape.space.Space;

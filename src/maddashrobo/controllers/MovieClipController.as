@@ -1,7 +1,7 @@
 package maddashrobo.controllers 
 {
-	import entityboost.Entity;
-	import entityboost.IController;
+	import jboost.Entity;
+	import jboost.IController;
 	import maddashrobo.Game;
 	import starling.display.MovieClip;
 	import starling.display.Sprite;
@@ -16,7 +16,7 @@ package maddashrobo.controllers
 		public function MovieClipController(assetID:String):void {
 			
 		}
-		/* INTERFACE entityboost.IController */
+		/* INTERFACE jboost.IController */
 		public function onUpdate(time:Number):void 
 		{
 			

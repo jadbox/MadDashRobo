@@ -1,4 +1,4 @@
-package entityboost 
+package jboost 
 {
 	/**
 	 * ...
@@ -9,7 +9,7 @@ package entityboost
 		private var _head:Entity;
 		private var elements:int;
 		
-		public function Indexer() 
+		public function EntityCollection() 
 		{
 			elements = 0;
 		}

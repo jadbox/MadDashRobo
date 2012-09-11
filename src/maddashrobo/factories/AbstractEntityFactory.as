@@ -1,7 +1,7 @@
 package maddashrobo.factories 
 {
-	import entityboost.Entity;
-	import entityboost.IController;
+	import jboost.Entity;
+	import jboost.IController;
 	
 	/**
 	 * ...

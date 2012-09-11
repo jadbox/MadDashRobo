@@ -1,7 +1,7 @@
 package maddashrobo.controllers 
 {
-	import entityboost.Entity;
-	import entityboost.IController;
+	import jboost.Entity;
+	import jboost.IController;
 	import nape.phys.Body;
 	import nape.space.Space;
 	
@@ -20,7 +20,7 @@ package maddashrobo.controllers
 			
 		}
 		
-		/* INTERFACE entityboost.IController */
+		/* INTERFACE jboost.IController */
 		
 		public function onUpdate(time:Number):void 
 		{

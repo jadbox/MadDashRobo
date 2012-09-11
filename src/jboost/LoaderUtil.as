@@ -1,4 +1,4 @@
-package  
+package jboost
 {
 	import flash.display.Bitmap;
 	import flash.display.Loader;
@@ -6,25 +6,18 @@ package
 	import flash.net.URLLoader;
 	import flash.net.URLRequest;
 	import flash.utils.Dictionary;
-	import starling.textures.TextureAtlas;
 	/**
 	 * ...
 	 * @author Jonathan Dunlap
 	 */
-	public class LoaderSys 
+	public class LoaderUtil
 	{
 		private static var loaders:Dictionary = new Dictionary();
 		private static var atlases:Dictionary = new Dictionary();
 		
-		public function LoaderSys() 
+		public function LoaderUtil() 
 		{
-			
-		}
-		
-		public static function getAtlas(url:String, onComplete:Function):void {
-			getAsset(url, function(md:Bitmap):void {
-				
-			});
+			throw new Error("cannot instance");
 		}
 		
 		public static function getAsset(url:String, onComplete:Function):void {
