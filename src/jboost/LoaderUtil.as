@@ -1,11 +1,14 @@
 package jboost
 {
 	import flash.display.Bitmap;
+	import flash.display.BitmapData;
 	import flash.display.Loader;
+	import starling.textures.Texture;
 	import flash.events.Event;
 	import flash.net.URLLoader;
 	import flash.net.URLRequest;
 	import flash.utils.Dictionary;
+	import starling.display.Image;
 	/**
 	 * ...
 	 * @author Jonathan Dunlap
@@ -50,6 +53,27 @@ package jboost
 				loader.removeEventListener(Event.COMPLETE, arguments.callee);
 				onComplete(XML(loader.data));
 			});
+		}
+		
+		public static function getImage(url:String, onComplete:Function):void
+		{
+			var unRequested:Boolean = loaders[url] == null;
+			var loader:Loader = loaders[url]?loaders[url]:loaders[url] = new Loader();
+			var loaded:Boolean = loader.content != null;
+			if (loaded) {
+				onComplete(loader.content);
+				return;
+			}
+			
+			loader.contentLoaderInfo.addEventListener(Event.COMPLETE, function(e:Event):void
+				{
+					loader.removeEventListener(Event.COMPLETE, arguments.callee);
+					var imageBitmap:Bitmap = e.currentTarget.loader.content as Bitmap;
+					onComplete(new Image(Texture.fromBitmap(imageBitmap)));
+				}
+			);
+			//loader.load(new URLRequest(url));
+			if (unRequested) loader.load(new URLRequest(url));
 		}
 	}
 

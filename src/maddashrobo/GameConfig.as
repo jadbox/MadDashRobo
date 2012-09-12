@@ -1,8 +1,10 @@
 package maddashrobo 
 {
 	import jboost.Entity;
+	import jboost.test.TestRunner;
 	import maddashrobo.controllers.NapeCore;
 	import maddashrobo.factories.*;
+	import maddashrobo.tests.TestLoading;
 	/**
 	 * ...
 	 * @author Jonathan Dunlap
@@ -22,6 +24,8 @@ package maddashrobo
 			var enemy:Entity = game.make("enemy");
 			enemy.x = 100;
 			enemy.y = 0;
+			
+			var run:TestRunner = new TestRunner(new Array(TestLoading));
 		}
 	}
 
