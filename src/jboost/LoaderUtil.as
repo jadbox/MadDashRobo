@@ -25,7 +25,7 @@ package jboost
 		
 		public static function getAsset(url:String, onComplete:Function):void {
 			var unRequested:Boolean = loaders[url] == null;
-			var loader:Loader = loaders[url]?loaders[url]:loaders[url] = new Loader();
+			var loader:Loader = loaders[url] = loaders[url] || new Loader();
 			var loaded:Boolean = loader.contentLoaderInfo.bytesLoaded >= loader.contentLoaderInfo.bytesTotal && loader.content!=null;
 			if (loaded) {
 				onComplete(loader.content);
@@ -41,7 +41,7 @@ package jboost
 		
 		public static function getXML(url:String, onComplete:Function):void {
 			var unRequested:Boolean = loaders[url] == null;
-			var loader:URLLoader = loaders[url]?loaders[url]:loaders[url] = new URLLoader();
+			var loader:URLLoader = loaders[url] = loaders[url] || new URLLoader();
 			var loaded:Boolean = loader.data;
 			if (loaded) {
 				onComplete(XML(loader.data));
@@ -57,23 +57,13 @@ package jboost
 		
 		public static function getImage(url:String, onComplete:Function):void
 		{
-			var unRequested:Boolean = loaders[url] == null;
-			var loader:Loader = loaders[url]?loaders[url]:loaders[url] = new Loader();
-			var loaded:Boolean = loader.content != null;
-			if (loaded) {
-				onComplete(loader.content);
-				return;
-			}
-			
-			loader.contentLoaderInfo.addEventListener(Event.COMPLETE, function(e:Event):void
+			getAsset(url, function(content:*):void
 				{
-					loader.removeEventListener(Event.COMPLETE, arguments.callee);
-					var imageBitmap:Bitmap = e.currentTarget.loader.content as Bitmap;
+					var imageBitmap:Bitmap = content as Bitmap;
+					if (imageBitmap == null) throw new Error("Bitmap is null");
 					onComplete(new Image(Texture.fromBitmap(imageBitmap)));
 				}
 			);
-			//loader.load(new URLRequest(url));
-			if (unRequested) loader.load(new URLRequest(url));
 		}
 	}
 

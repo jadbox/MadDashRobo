@@ -12,7 +12,8 @@ package
 		[SWF(width="800", height="600", frameRate="60", backgroundColor="#111111")]
 		public function UnitTests() 
 		{
-			new TestRunner([TestLoading]);
+			var runner:TestRunner = new TestRunner([TestLoading]);
+			runner.run();
 			return;
 		}
 		
