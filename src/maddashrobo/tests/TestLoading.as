@@ -16,8 +16,9 @@ package maddashrobo.tests
 		public function TestLoading() 
 		{
 			super("LoadingTest", 
-				{simpleTest:simpleTest, xmlLoadTest:xmlLoadTest} // , imageLoadTest:imageLoadTest
+				{simpleTest:simpleTest, xmlLoadTest:xmlLoadTest} // {name_of_test:function_reference}
 			);
+			// , imageLoadTest:imageLoadTest
 		}
 		
 		private function simpleTest(cb:Function):void {
