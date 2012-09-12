@@ -1,6 +1,7 @@
 package maddashrobo.tests 
 {
 	import jboost.LoaderUtil;
+	import jboost.starling.StarlingLoader;
 	import jboost.test.CaseTest;
 	import starling.display.Image;
 	import maddashrobo.Game;
@@ -15,7 +16,7 @@ package maddashrobo.tests
 		public function TestLoading() 
 		{
 			super("LoadingTest", 
-				{simpleTest:simpleTest, xmlLoadTest:xmlLoadTest, imageLoadTest:imageLoadTest}
+				{simpleTest:simpleTest, xmlLoadTest:xmlLoadTest} // , imageLoadTest:imageLoadTest
 			);
 		}
 		
@@ -32,8 +33,9 @@ package maddashrobo.tests
 			});
 		}
 		
+		// Can't process Starling methods since the unit test runs from UnitTest.as and doesn't startup Starling
 		private function imageLoadTest(cb:Function):void {
-			LoaderUtil.getImage("touch_marker.png", 
+			StarlingLoader.getImage("touch_marker.png", 
 				function(starlImg:Image):void
 				{
 					assertNNull("oopsy daisies", starlImg);

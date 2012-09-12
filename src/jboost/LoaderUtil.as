@@ -3,12 +3,11 @@ package jboost
 	import flash.display.Bitmap;
 	import flash.display.BitmapData;
 	import flash.display.Loader;
-	import starling.textures.Texture;
 	import flash.events.Event;
 	import flash.net.URLLoader;
 	import flash.net.URLRequest;
 	import flash.utils.Dictionary;
-	import starling.display.Image;
+
 	/**
 	 * ...
 	 * @author Jonathan Dunlap
@@ -53,17 +52,6 @@ package jboost
 				loader.removeEventListener(Event.COMPLETE, arguments.callee);
 				onComplete(XML(loader.data));
 			});
-		}
-		
-		public static function getImage(url:String, onComplete:Function):void
-		{
-			getAsset(url, function(content:*):void
-				{
-					var imageBitmap:Bitmap = content as Bitmap;
-					if (imageBitmap == null) throw new Error("Bitmap is null");
-					onComplete(new Image(Texture.fromBitmap(imageBitmap)));
-				}
-			);
 		}
 	}
 
