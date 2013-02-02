@@ -26,6 +26,7 @@ package maddashrobo
 			enemy.y = 0;
 			
 			var run:TestRunner = new TestRunner(new Array(TestLoading));
+			run.run();
 		}
 	}
 
