@@ -1,27 +1,32 @@
 package maddashrobo.factories 
 {
+	import starling.display.Sprite;
 	import jboost.Entity;
 	import jboost.IController;
+	import maddashrobo.controllers.HeroController;
 	import maddashrobo.controllers.MovieClipController;
+	import maddashrobo.Game;
 	/**
 	 * ...
 	 * @author Jonathan Dunlap
 	 */
 	public class HeroFactory extends AbstractEntityFactory 
 	{
+		private var heroLayer:Sprite;
 		
-		public function HeroFactory() 
+		public function HeroFactory(layer:Sprite) 
 		{
-			
+			if (null != layer) heroLayer = layer;
+			else heroLayer = Game.view;
 		}
 		protected override function makeEntity():Entity {
 			return new Entity();
 		}
 		protected override function makeControllers():Array {
-			return [];
+			return [new HeroController()];
 		}
 		protected override function makeView():IController {
-			return new MovieClipController("placeholder");
+			return new MovieClipController(heroLayer, "PoisonMoth");
 		}
 		public override function get type():String {
 			return "hero";

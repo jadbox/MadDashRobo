@@ -12,8 +12,10 @@ package jboost
 		public var state:int;
 		
 		// world location
-		public var x:Number; 
-		public var y:Number;
+		public var x:Number = 0; 
+		public var y:Number = 0;
+		public var rotation:Number = 0;
+		public var scale:Number = 1;
 		
 		//internal use only
 		internal var _next:Entity;

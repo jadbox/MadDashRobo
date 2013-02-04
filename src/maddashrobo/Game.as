@@ -1,5 +1,6 @@
 package maddashrobo 
 {
+	import flash.utils.Dictionary;
 	import jboost.Entity;
 	import jboost.EntityCollection;
 	import jboost.IController;
@@ -22,6 +23,7 @@ package maddashrobo
 		private var mLastFrameTimestamp:Number;
 		private const factories:Object = { };
 		private const _controllers:Array = new Array();
+		private const _layers:Dictionary = new Dictionary();
 		
 		public function Game() 
 		{
@@ -34,7 +36,7 @@ package maddashrobo
 		// Game engine-wide logic
 		public function addController(controller:IController):void {
 			_controllers.push(controller); 
-			controller.onSetup(this);
+			//controller.onSetup(this);
 		}
 		
 		public function removeController(controller:IController):void {
@@ -57,6 +59,14 @@ package maddashrobo
 			return entities.add( AbstractEntityFactory(factories[factoryType]).make() );
 		}
 		
+		public function addLayer(layerName:String):Sprite
+		{
+			var layer:Sprite = new Sprite();
+			_layers[layerName] = layer;
+			this.addChild(layer);
+			return layer;
+		}
+		
 		public function start():void {
 			started = true;
 		}
@@ -68,6 +78,8 @@ package maddashrobo
 		public function advanceTime(time:Number):void {
 			if (!started) return;
 			entities.update(time);
+			for each(var controller:IController in _controllers)
+				controller.onUpdate(time);
 		}
 	}
 
