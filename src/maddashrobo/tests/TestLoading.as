@@ -17,7 +17,7 @@ package maddashrobo.tests
 		{
 			super("LoadingTest", 
 				{simpleTest:simpleTest,
-				xmlLoadTest:xmlLoadTest,
+				/*xmlLoadTest:xmlLoadTest,*/
 				imageLoadTest:imageLoadTest} // {name_of_test:function_reference}
 			);
 			// , imageLoadTest:imageLoadTest
