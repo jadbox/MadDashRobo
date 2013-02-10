@@ -5,6 +5,8 @@ package maddashrobo
 	import starling.textures.Texture;
 	import flash.utils.Dictionary;
 	import flash.display.Bitmap;
+	import starling.display.Sprite;
+	import flash.utils.getDefinitionByName;
 	/**
 	 * ...
 	 * @author ...
@@ -21,11 +23,18 @@ package maddashrobo
 		[Embed(source="mySpritesheet.xml", mimeType="application/octet-stream")]
 		public static const AtlasXmlGame:Class;
 		
+		//PoinsonMoth
 		[Embed(source = "../../assets/graphics/mothsheet.xml", mimeType="application/octet-stream")]
 		public static const MothTextureXml:Class;
 		
 		[Embed(source = "../../assets/graphics/mothsheet.png")]
 		public static const MothTexture:Class;
+		
+		[Embed(source = "../../assets/graphics/legguy.xml", mimeType="application/octet-stream")]
+		public static const LegGuyTextureXml:Class;
+		
+		[Embed(source = "../../assets/graphics/legguy.png")]
+		public static const LegGuyTexture:Class;
 		
 		[Embed(source = "../../assets/graphics/pollen.png")]
 		public static const PollenTexture:Class;
@@ -41,9 +50,10 @@ package maddashrobo
 			//textureID = "MothTexture";
 			if (gameTextureAtlas == null)
 			{
+				var moth:XML = new MothTextureXml() as XML;
 				var texture:Texture = getTexture(textureID);
-				var SheetXml:Class = Type.getClass(textureID + "Xml");
-				var xml:XML = XML(new MothTextureXml());
+				//var SheetXml:Class = getDefinitionByName(textureID + "Xml") as Class;
+				var xml:XML = new XML(new Assets[textureID + "Xml"]());
 				gameTextureAtlas=new TextureAtlas(texture, xml);
 			}
 			return gameTextureAtlas;

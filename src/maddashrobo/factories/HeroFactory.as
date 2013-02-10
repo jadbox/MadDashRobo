@@ -26,7 +26,7 @@ package maddashrobo.factories
 			return [new HeroController()];
 		}
 		protected override function makeView():IController {
-			return new MovieClipController(heroLayer, "PoisonMoth");
+			return new MovieClipController(heroLayer, "legs", "LegGuyTexture");
 		}
 		public override function get type():String {
 			return "hero";

@@ -40,11 +40,12 @@ package maddashrobo.controllers
 			{
 				entity.y += 8;
 			}
+			
 		}
 		public function onSetup(entity:Object):void
 		{
 			this.entity = entity as Entity;
-			this.entity.rotation = Math.PI / 2;
+			//this.entity.rotation = Math.PI / 2;
 			this.entity.scale = .5;
 			keyDict = new Dictionary();
 			Game.view.stage.addEventListener(KeyboardEvent.KEY_DOWN, keyDown);
