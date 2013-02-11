@@ -1,5 +1,8 @@
 package jboost 
 {
+	import flash.utils.Dictionary;
+	import maddashrobo.Messages.IMessage;
+	
 	/**
 	 * ...
 	 * @author Jonathan Dunlap
@@ -21,6 +24,8 @@ package jboost
 		internal var _next:Entity;
 		internal var _prev:Entity;
 		internal const _controllers:Array = new Array();
+		//internal var _messages:Vector.<IMessage>;
+		internal var _messages:Dictionary = new Dictionary(); //string -> Vector.<IMessage>
 		
 		public function Entity() 
 		{
@@ -35,6 +40,20 @@ package jboost
 		public function removeController(controller:IController):void {
 			_controllers.splice(_controllers.indexOf(controller), 1);
 			controller.onDestroy();
+		}
+		
+		public function sendMessage(msg:IMessage):void
+		{
+			//_messages.push(msg);
+			if (_messages[msg.getType()] != null)
+			{
+				Vector.<IMessage>(_messages[msg.getType()]).push(msg);
+			}else
+			{
+				var messageCollection:Vector.<IMessage> = new Vector.<IMessage>();
+				messageCollection.push(msg);
+				_messages[msg.getType()] = messageCollection;
+			}
 		}
 	}
 

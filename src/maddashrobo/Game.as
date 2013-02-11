@@ -36,7 +36,7 @@ package maddashrobo
 		// Game engine-wide logic
 		public function addController(controller:IController):void {
 			_controllers.push(controller); 
-			//controller.onSetup(this);
+			controller.onSetup(this);
 		}
 		
 		public function removeController(controller:IController):void {

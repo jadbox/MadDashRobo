@@ -1,5 +1,6 @@
 package maddashrobo.factories 
 {
+	import maddashrobo.controllers.PhysicsBodyController;
 	import starling.display.Sprite;
 	import jboost.Entity;
 	import jboost.IController;
@@ -23,7 +24,7 @@ package maddashrobo.factories
 			return new Entity();
 		}
 		protected override function makeControllers():Array {
-			return [new HeroController()];
+			return [new HeroController(), new PhysicsBodyController()];
 		}
 		protected override function makeView():IController {
 			return new MovieClipController(heroLayer, "legs", "LegGuyTexture");

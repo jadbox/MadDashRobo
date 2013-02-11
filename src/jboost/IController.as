@@ -1,5 +1,6 @@
 package jboost 
 {
+	import maddashrobo.Messages.IMessage;
 	
 	/**
 	 * ...
@@ -7,9 +8,10 @@ package jboost
 	 */
 	public interface IController 
 	{
-		function onUpdate(time:Number):void;
+		function onUpdate(time:Number, messageVec:Vector.<IMessage>):void;
 		function onSetup(entity:Object):void;
 		function onDestroy():void;
+		function getMessageListeners():Vector.<String>;
 	}
 	
 }

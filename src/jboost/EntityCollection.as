@@ -4,8 +4,11 @@ package jboost
 	 * ...
 	 * @author Jonathan Dunlap
 	 */
+	import maddashrobo.Messages.IMessage;
+	 
 	public class EntityCollection 
 	{
+		
 		private var _head:Entity;
 		private var elements:int;
 		
@@ -42,7 +45,14 @@ package jboost
 			var i:Entity = _head;
 			var c:IController;
 			while (i) {
-				for (var n:int = 0; n < i._controllers.length; n++) IController(i._controllers[n]).onUpdate(time);
+				for (var n:int = 0; n < i._controllers.length; n++) {
+					var messageVec:Vector.<IMessage> = new Vector.<IMessage>();
+					for each ( var str:String in c.getMessageListeners()) {
+						if (i._messages[str] != null) messageVec.push(i._messages[str]);
+					}
+					//IController(i._controllers[n]).
+					IController(i._controllers[n]).onUpdate(time, messageVec);
+				}
 				i = i._next;
 			}
 		}
