@@ -17,8 +17,8 @@ package maddashrobo
 	{
 		public static function configure(game:Game):void {
 			
-			var heroLayer:Sprite = game.addLayer("hero");
 			var worldLayer:Sprite = game.addLayer("world");
+			var heroLayer:Sprite = game.addLayer("hero");
 			
 			game.addController(new BackgroundController(worldLayer));
 			
@@ -35,15 +35,15 @@ package maddashrobo
 			enemy.x = 400;
 			enemy.y = Math.random() * 500;
 			
-			for (var i:int = 0; i < 20; i++ )
+			/*for (var i:int = 0; i < 20; i++ )
 			{
 				var enemy2:Entity = game.make("enemy");
 				enemy2.x = 250;
 				enemy2.y = 450 * Math.random();
-			}
+			}*/
 			
 			
-			var enemyTimer:Timer = new Timer(500);
+			var enemyTimer:Timer = new Timer(1500);
 			enemyTimer.addEventListener(TimerEvent.TIMER, function():void {
 				var en:Entity = game.make("enemy");
 				en.x = 400;

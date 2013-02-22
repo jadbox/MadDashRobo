@@ -39,6 +39,9 @@ package maddashrobo
 		[Embed(source = "../../assets/graphics/pollen.png")]
 		public static const PollenTexture:Class;
 		
+		[Embed(source = "../../assets/graphics/bgLayer1.jpg")]
+		public static const BgTexture:Class;
+		
 		/**
 		 * Texture Cache 
 		 */

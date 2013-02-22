@@ -48,7 +48,13 @@ package maddashrobo
 			GameConfig.configure(this);
 			removeEventListener(Event.ADDED_TO_STAGE, onStageAdded);
 			Starling.juggler.add(this);
+			addEventListener(EnterFrameEvent.ENTER_FRAME, update);
 			start();
+		}
+		
+		private function update(e:EnterFrameEvent):void
+		{
+			advanceTime(1);
 		}
 		
 		public function addFactory(f:AbstractEntityFactory):void {

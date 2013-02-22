@@ -60,7 +60,7 @@ package maddashrobo.controllers
 		
 		private function keyDown(e:KeyboardEvent):void
 		{
-			trace("key down: " + e.keyCode);
+			//trace("key down: " + e.keyCode);
 			keyDict[e.keyCode] = true;
 		}
 		
